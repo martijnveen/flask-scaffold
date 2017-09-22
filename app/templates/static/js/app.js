@@ -47,18 +47,18 @@ angular.module('myApp').config(function( $stateProvider , $urlRouterProvider, $a
     }
 
 $stateProvider.state('login', {
-	url: '/login',
-	templateUrl: 'login.html',
-	controller: 'LoginController',
+  url: '/login',
+  templateUrl: 'login.html',
+  controller: 'LoginController',
     title: 'Sign In',
     resolve: {
           skipIfLoggedIn: skipIfLoggedIn
         }
 
   }).state('ForgotPassword', {
-	url: '/forgotpassword/:token',
-	templateUrl: 'forgotpassword.html',
-	controller: 'LoginController',
+  url: '/forgotpassword/:token',
+  templateUrl: 'forgotpassword.html',
+  controller: 'LoginController',
     resolve: {
           skipIfLoggedIn: skipIfLoggedIn
         }

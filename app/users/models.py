@@ -1,3 +1,4 @@
+import datetime
 from marshmallow_jsonapi import Schema, fields
 from marshmallow import validate
 from app.basemodels import db, CRUD_MixIn
@@ -10,10 +11,10 @@ class Users(db.Model, CRUD_MixIn):
     password = db.Column(db.String(250), nullable=False)
     name = db.Column(db.String(250), nullable=False)
     active = db.Column(db.Integer, nullable=False)
-    creation_time = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp(), nullable=False)
+    creation_time = db.Column(
+        db.DateTime, default=datetime.datetime.utcnow, nullable=False)
     role = db.Column(db.String(250), db.ForeignKey('roles.name'))
     role_relation = db.relationship('Roles', backref="users")
-
 
     def __init__(self,  email,  password,  name,  active, role, ):
 
@@ -34,7 +35,7 @@ class UsersSchema(Schema):
     password = fields.String(validate=not_blank)
     name = fields.String(validate=not_blank)
     active = fields.Integer(required=True)
-    creation_time = fields.DateTime(dump_only=True)
+    creation_time = fields.DateTime(required=False)
     role = fields.String(validate=not_blank)
 
     # self links

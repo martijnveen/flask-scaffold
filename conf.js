@@ -7,4 +7,3 @@ exports.config = {
 
   ]
 }
-
