@@ -1,0 +1,33 @@
+<a class="btn btn-default pull-right btn-primary" ui-sref="comments.new" role="button" ng-if="isAuthenticated()">New</a>
+
+<table datatable="ng" dt-options="dtOptions" class="table table-bordered" ng-if="isAuthenticated()">
+
+
+       <thead>
+         <th>ID</th>
+         
+                         <th>Author</th>
+                         <th>Body</th>
+                         <th>Author_Url</th>
+                         <th>Created_On</th>
+                         <th>Approved</th>
+          <th>Actions</th>
+
+
+        </thead>
+        <tbody>
+        <tr ng-repeat=" comment in comments">
+            <td>{{ comment.id  }}</td> 
+            
+                         <td>{{ comment.author }}</td>
+                         <td>{{ comment.body }}</td>
+                         <td>{{ comment.author_url }}</td>
+                         <td>{{ comment.created_on }}</td>
+                         <td>{{ comment.approved }}</td>
+            <td><a ui-sref="comments.edit({id:comment.id })" class="btn btn-default btn-warning" role="button"  id="editButton"><i class="fa fa-edit"></i></a>
+            <button class="btn btn-default btn-danger" ng-click="deleteComment(comment.id)" id="deleteButton"><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+        </tbody>
+
+</table>
