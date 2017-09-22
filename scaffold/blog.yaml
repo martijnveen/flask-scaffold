@@ -1,16 +1,20 @@
- posts:
-  - tittle:string
-  - body:text
-  - author:string
-  - creation_date:datetime
-  - published:boolean
- comments:
-  - author:string
-  - body:text
-  - author_url:url
-  - created_on:date
-  - approved:boolean
- authors:
-  - name:string
-  - profile:text
-  - url:url
+posts:
+    - tittle: string
+    - body: text
+    - author: string
+    - creation_date: datetime
+    - published: boolean
+videos:
+    - description: string
+    - creation_date: datetime
+    - url: text
+comments:
+    - author: string
+    - body: text
+    - author_url: url
+    - created_on: datetime
+    - approved: boolean
+authors:
+    - name: string
+    - profile: text
+    - url:  url

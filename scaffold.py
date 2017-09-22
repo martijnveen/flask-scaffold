@@ -218,8 +218,9 @@ with open(yaml_file, "r") as file:
         protractor_edit_elments = ""
         protractor_add_elments = ""
 
-        for f in fields:
-            field, field_type = f.split(':')
+        for field_ in fields:
+            field, field_type = list(field_.items())[0]
+
             if field_type == "string":
                 db_rows += """
     {} = db.Column(db.String(250), nullable=False)""".format(field)
@@ -303,7 +304,7 @@ with open(yaml_file, "r") as file:
 
             elif field_type == "datetime":
                 db_rows += """
-    {} = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())""".format(field)
+    {} = db.Column(db.DateTime, nullable=False, default=datetime.datetime.utcnow())""".format(field)
                 schema += """
     {} = fields.DateTime(required=True)""".format(field)
                 form_fields += form_field.format(field=field, Field=field.title(
