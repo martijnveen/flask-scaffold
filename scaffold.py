@@ -303,7 +303,7 @@ with open(yaml_file, "r") as file:
 
             elif field_type == "datetime":
                 db_rows += """
-    {} = db.Column(db.TIMESTAMP,server_default=db.func.current_timestamp(),nullable=False)""".format(field)
+    {} = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())""".format(field)
                 schema += """
     {} = fields.DateTime(required=True)""".format(field)
                 form_fields += form_field.format(field=field, Field=field.title(
