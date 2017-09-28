@@ -122,6 +122,7 @@ http://techarena51.com/index.php/buidling-a-database-driven-restful-json-api-in-
 https://techarena51.com/index.php/category/flask-framework-tutorials-and-examples/
 
 ###Directory Structure
+
         Project-Folder
             |-- config.py
             |--run.py
